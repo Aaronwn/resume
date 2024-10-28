@@ -1,22 +1,22 @@
 import Image from 'next/image'
 
-const rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
-
 export default function Photos() {
+  const images = [
+    "https://images.unsplash.com/photo-1551721434-8b94ddff0e6d",
+    "https://images.unsplash.com/photo-1551721434-8b94ddff0e6d",
+    "https://images.unsplash.com/photo-1551721434-8b94ddff0e6d",
+    "https://images.unsplash.com/photo-1551721434-8b94ddff0e6d",
+    "https://images.unsplash.com/photo-1551721434-8b94ddff0e6d",
+  ]
+
   return (
     <div className="mt-16 sm:mt-20">
       <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[
-          '/photos/image-1.jpg',
-          '/photos/image-2.jpg',
-          '/photos/image-3.jpg',
-          '/photos/image-4.jpg',
-          '/photos/image-5.jpg',
-        ].map((image, imageIndex) => (
+        {images.map((image, imageIndex) => (
           <div
-            key={image}
+            key={image + imageIndex}
             className={`relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl ${
-              rotations[imageIndex % rotations.length]
+              ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2'][imageIndex]
             }`}
           >
             <Image
