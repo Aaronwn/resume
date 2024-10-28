@@ -1,11 +1,10 @@
-'use client'
+'use client';
 
-import { useEffect, useState } from 'react'
-import Link from 'next/link'
-import Container from './Container'
-import { ThemeToggle } from './ThemeToggle'
+import { useEffect, useState } from 'react';
+import Container from './Container';
+import { ThemeToggle } from './ThemeToggle';
 
-function MobileNavigation() {
+function MobileNavigation({ onClose }: { onClose: () => void }) {
   return (
     <div className="fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm dark:bg-black/80">
       <div className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-800">
@@ -14,6 +13,7 @@ function MobileNavigation() {
             type="button"
             className="-m-1 p-1"
             aria-label="Close menu"
+            onClick={onClose}
           >
             <svg viewBox="0 0 24 24" className="h-6 w-6 text-zinc-500 dark:text-zinc-400">
               <path d="M5 5l14 14M5 19L19 5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -25,9 +25,45 @@ function MobileNavigation() {
         </div>
         <nav className="mt-6">
           <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
-            <li><Link href="/about" className="block py-2">关于我</Link></li>
-            <li><Link href="/experience" className="block py-2">工作经历</Link></li>
-            <li><Link href="/projects" className="block py-2">项目经验</Link></li>
+            <li>
+              <a
+                href="#about"
+                className="block py-2"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+                  onClose();
+                }}
+              >
+                关于我
+              </a>
+            </li>
+            <li>
+              <a
+                href="#experience"
+                className="block py-2"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector('#experience')?.scrollIntoView({ behavior: 'smooth' });
+                  onClose();
+                }}
+              >
+                工作经历
+              </a>
+            </li>
+            <li>
+              <a
+                href="#projects"
+                className="block py-2"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
+                  onClose();
+                }}
+              >
+                项目经验
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -39,28 +75,44 @@ function DesktopNavigation() {
   return (
     <nav className="pointer-events-auto">
       <ul className="flex rounded-full px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:text-zinc-200 dark:ring-white/10 bg-white/90 dark:bg-zinc-800/90">
-        <li><Link href="/about" className="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400">关于我</Link></li>
-        <li><Link href="/experience" className="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400">工作经历</Link></li>
-        <li><Link href="/projects" className="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400">项目经验</Link></li>
+        <li>
+          <a
+            href="#about"
+            className="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            关于我
+          </a>
+        </li>
+        <li>
+          <a
+            href="#experience"
+            className="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector('#experience')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            工作经历
+          </a>
+        </li>
+        <li>
+          <a
+            href="#projects"
+            className="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            项目经验
+          </a>
+        </li>
       </ul>
     </nav>
-  )
-}
-
-function MobileMenuButton({ onClick }: { onClick: () => void }) {
-  return (
-    <button
-      type="button"
-      className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
-      onClick={onClick}
-    >
-      <svg
-        viewBox="0 0 24 24"
-        className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300"
-      >
-        <path d="M2 6h20v2H2zM2 16h20v2H2z" />
-      </svg>
-    </button>
   )
 }
 
@@ -80,31 +132,36 @@ export default function Header() {
 
   return (
     <header
-      className={`pointer-events-none relative z-50 flex flex-col ${
+      className={`fixed inset-x-0 top-0 z-50 backdrop-blur duration-200 border-b ${
         isScrolled
-          ? 'bg-white/75 backdrop-blur dark:bg-zinc-900/75'
-          : ''
+          ? 'bg-white/75 border-zinc-200 dark:border-zinc-800 dark:bg-zinc-900/75'
+          : 'bg-white/0 border-transparent'
       }`}
     >
-      <div className="top-0 z-10 h-16 pt-6">
-        <Container>
-          <div className="relative flex items-center justify-center">
-            <div className="flex justify-center">
-              <div className="pointer-events-auto md:hidden">
-                <MobileMenuButton onClick={() => setIsShowingMobileMenu(true)} />
-              </div>
-              <div className="hidden md:block">
-                <DesktopNavigation />
-              </div>
+      <Container>
+        <div className="flex flex-col items-center justify-between py-6">
+          <div className="relative flex items-center gap-16">
+            <div className="flex lg:flex-1">
+              <button type="button" className="lg:hidden" onClick={() => setIsShowingMobileMenu(true)}>
+                <svg viewBox="0 0 24 24" className="h-6 w-6 text-zinc-500">
+                  <path d="M3 4h18M3 12h18M3 20h18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </button>
             </div>
-            <div className="pointer-events-auto absolute right-0">
-              <ThemeToggle />
+            <div className="hidden lg:flex lg:gap-10">
+              <DesktopNavigation />
+            </div>
+            <div className="flex justify-end md:flex-1">
+              <div className="pointer-events-auto">
+                <ThemeToggle />
+              </div>
             </div>
           </div>
-        </Container>
-      </div>
+        </div>
+      </Container>
+
       {isShowingMobileMenu && (
-        <MobileNavigation />
+        <MobileNavigation onClose={() => setIsShowingMobileMenu(false)} />
       )}
     </header>
   )

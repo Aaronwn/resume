@@ -18,6 +18,11 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* 去掉 li 标签默认样式 */
+  li {
+    list-style: none;
+  }
 }
 
 ::selection {

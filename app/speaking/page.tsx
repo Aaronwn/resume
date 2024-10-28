@@ -42,7 +42,7 @@ function Appearance({ title, description, event, cta, href }: {
 
 export default function Speaking() {
   return (
-    <Container className="mt-16 sm:mt-32">
+    <Container className="mt-40 sm:mt-48">  {/* 增加了顶部间距 */}
       <header className="max-w-2xl">
         <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
           I've spoken at events all around the world and been interviewed for many podcasts.

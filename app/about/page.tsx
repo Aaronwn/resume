@@ -48,11 +48,11 @@ export default function About() {
   ];
 
   return (
-    <Container className="mt-40 sm:mt-48">
+    <Container className="mt-52 sm:mt-64">
       <div className="mx-auto max-w-2xl">
         <header className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            我是王能，一名专注于AI的前端工程师
+            我是王能，一名专注于前端开发的工程师
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>

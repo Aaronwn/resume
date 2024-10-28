@@ -39,7 +39,7 @@ function Tool({ title, href, children }: { title: string; href?: string; childre
 
 export default function Uses() {
   return (
-    <div className="mt-16 sm:mt-32">
+    <div className="mt-40 sm:mt-48">  {/* 增加了顶部间距 */}
       <Container>
         <header className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
