@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Container from '@/components/Container';
-import { SocialLink, MailIcon, PhoneIcon } from '@/components/SocialIcons';
+import { MailIcon, PhoneIcon } from '@/components/SocialIcons';
 import { AboutSection } from '@/components/AboutSection';
 import { ExperienceSection } from '@/components/ExperienceSection';
 import { ProjectSection } from '@/components/ProjectSection';
@@ -8,20 +8,12 @@ import { ProjectSection } from '@/components/ProjectSection';
 export default function Home() {
   return (
     <div className="flex-auto">
-      {/* 个人简介部分 */}
-      <Container className="mt-36 sm:mt-48">
+      {/* 个人简介部分 - 减少顶部间距 */}
+      <Container className="mt-32 sm:mt-40">
         <div className="max-w-2xl">
           <div className="max-w-2xl">
-            <Image
-              src="/images/avatar.jpg"
-              alt="王能"
-              width={64}
-              height={64}
-              className="h-16 w-16 rounded-full object-cover bg-zinc-100 dark:bg-zinc-800"
-              priority
-            />
-            <h1 className="mt-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              高级前端开发工程师
+            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+              资深前端工程师
             </h1>
             <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
               我是一名拥有8年+工作经验的前端开发工程师，专注于现代Web技术。
@@ -43,7 +35,7 @@ export default function Home() {
       </Container>
 
       {/* 关于我部分 */}
-      <div id="about" className="mt-20 sm:mt-24 scroll-mt-32">
+      <div id="about" className="mt-24 sm:mt-28 scroll-mt-32">
         <Container>
           <h2 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl">
             关于我
@@ -55,7 +47,7 @@ export default function Home() {
       </div>
 
       {/* 工作经历部分 */}
-      <div id="experience" className="mt-20 sm:mt-24 scroll-mt-32">
+      <div id="experience" className="mt-24 sm:mt-28 scroll-mt-32">
         <Container>
           <h2 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl">
             工作经历
@@ -67,7 +59,7 @@ export default function Home() {
       </div>
 
       {/* 项目经验部分 */}
-      <div id="projects" className="mt-20 sm:mt-24 scroll-mt-32 mb-20 sm:mb-24">
+      <div id="projects" className="mt-24 sm:mt-28 scroll-mt-32 mb-24 sm:mb-28">
         <Container>
           <h2 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl">
             项目经验
