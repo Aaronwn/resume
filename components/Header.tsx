@@ -20,16 +20,14 @@ function MobileNavigation() {
             </svg>
           </button>
           <h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-            Navigation
+            导航
           </h2>
         </div>
         <nav className="mt-6">
           <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
-            <li><Link href="/about" className="block py-2">About</Link></li>
-            <li><Link href="/articles" className="block py-2">Articles</Link></li>
-            <li><Link href="/projects" className="block py-2">Projects</Link></li>
-            <li><Link href="/speaking" className="block py-2">Speaking</Link></li>
-            <li><Link href="/uses" className="block py-2">Uses</Link></li>
+            <li><Link href="/about" className="block py-2">关于我</Link></li>
+            <li><Link href="/experience" className="block py-2">工作经历</Link></li>
+            <li><Link href="/projects" className="block py-2">项目经验</Link></li>
           </ul>
         </nav>
       </div>
@@ -41,11 +39,9 @@ function DesktopNavigation() {
   return (
     <nav className="pointer-events-auto">
       <ul className="flex rounded-full px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:text-zinc-200 dark:ring-white/10 bg-white/90 dark:bg-zinc-800/90">
-        <li><Link href="/about" className="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400">About</Link></li>
-        <li><Link href="/articles" className="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400">Articles</Link></li>
-        <li><Link href="/projects" className="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400">Projects</Link></li>
-        <li><Link href="/speaking" className="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400">Speaking</Link></li>
-        <li><Link href="/uses" className="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400">Uses</Link></li>
+        <li><Link href="/about" className="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400">关于我</Link></li>
+        <li><Link href="/experience" className="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400">工作经历</Link></li>
+        <li><Link href="/projects" className="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400">项目经验</Link></li>
       </ul>
     </nav>
   )
