@@ -74,13 +74,16 @@ export function ProjectSection() {
               <span className="text-teal-500">技术栈：</span>{project.tech}
             </p>
             <div className="relative z-10 mt-4">
+              <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-2">
+                <span className="text-teal-500">项目职责：</span>
+              </p>
               <ul className="space-y-2">
                 {project.highlights.map((highlight, idx) => (
-                  <li key={idx} className="flex items-start">
+                  <li key={idx} className="flex items-center">
                     <span className="flex-none flex items-center justify-center w-8">
                       <span className="h-1.5 w-1.5 rounded-full bg-zinc-300 dark:bg-zinc-600"></span>
                     </span>
-                    <span className="text-sm text-zinc-600 dark:text-zinc-400">{highlight}</span>
+                    <span className="text-sm text-zinc-600 dark:text-zinc-400 leading-6">{highlight}</span>
                   </li>
                 ))}
               </ul>
